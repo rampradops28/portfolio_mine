@@ -1,0 +1,31 @@
+ 
+
+.shape {
+    position: absolute;
+    animation: float 6s ease-in-out infinite;
+}
+
+.s1 { animation-duration: 8s; }
+.s2 { animation-duration: 6s; animation-delay: 1s; }
+.s3 { animation-duration: 7s; animation-delay: 2s; }
+.s4 { animation-duration: 9s; animation-delay: 3s; }
+.s5 { animation-duration: 7s; animation-delay: 4s; }
+.s6 { animation-duration: 6s; animation-delay: 5s; }
+.s7 { animation-duration: 10s; animation-delay: 6s; }
+.s8 { animation-duration: 8s; animation-delay: 7s; }
+.s9 { animation-duration: 7s; animation-delay: 8s; }
+.s10 { animation-duration: 9s; animation-delay: 9s; }
+.s11 { animation-duration: 6s; animation-delay: 10s; }
+
+/* Floating animation */
+@keyframes float {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate(calc(50px * sin(45deg)), calc(50px * cos(45deg))) rotate(180deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+    }
+}
