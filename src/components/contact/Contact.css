@@ -73,6 +73,7 @@
 
 @media screen and (max-width: 350px) {
   .contact__container {
+    height: 100vh;
     grid-template-columns: 1fr;
   }
 }

@@ -30,7 +30,7 @@
     }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 360px) {
     
     .s6{
         display: none;
