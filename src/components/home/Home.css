@@ -1,6 +1,7 @@
-.home {
+.home { 
   position: relative;
   min-height: 100vh;
+  width:80vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -165,4 +166,14 @@
 .s11 {
   bottom: 10%;
   right: 2%;
+}
+
+
+@media (max-width: 450px) {
+  .scroll__down{
+    margin: 100px  1px;  
+  }
+  .home{
+    width:100%;
+  }
 }
