@@ -2,6 +2,8 @@ import Work1 from "../../assets/native-jobs.png";
 import Work2 from "../../assets/cryptoverse.png";
 import Work3 from "../../assets/travel.png";
 import Work4 from "../../assets/blog-1.svg";
+import backend1 from '../../assets/backend1.png';
+import python from '../../assets/python1.png'
 
 const Menu = [
 	{
@@ -29,14 +31,15 @@ const Menu = [
 	},
 	{
 		id: 4,
-		image: Work4,
-		title: "Wallhaven CLI",
+		image: backend1,
+		title: "Student Management System",
 		category: ["Backend"],
-		url: "https://www.npmjs.com/package/wallhaven-cli",
-		repositoryUrl: "https://github.com/GregSithole/wallhaven-cli"
+		url: "https://github.com/rampradops28/node_crud",
+		repositoryUrl: "https://github.com/rampradops28/node_crud"
 	},
 	{
 		id:5, 
+		image: python,
 		title: "WebScraping Data",
 		category: ["Python"],
 		repositoryUrl: "https://github.com/rampradops28/web_scrab/tree/main"
