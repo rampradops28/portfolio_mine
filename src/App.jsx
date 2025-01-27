@@ -31,14 +31,15 @@ function App() {
     const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'dark' : 'light');
 
-    const switchTheme = () => {
-        const newTheme = theme === 'light' ? 'dark' : 'light';
-        setTheme(newTheme);
-    }
+    // const switchTheme = () => {
+    //     const newTheme = theme === 'light' ? 'dark' : 'light';
+    //     setTheme(newTheme);
+    // } 
+    //theme={theme} switchTheme={switchTheme}
 
     return (
         <div className="app" data-theme={theme}>
-            <Sidebar theme={theme} switchTheme={switchTheme} />
+            <Sidebar  />
             <main className='main'>
                 <Home />
                 <About /> 
@@ -47,7 +48,7 @@ function App() {
                     <Skill />
                 </IntlProvider>
                 <Portfolio />  
-                <Contact theme={theme} />
+                <Contact   />
             </main>
         </div>
     );

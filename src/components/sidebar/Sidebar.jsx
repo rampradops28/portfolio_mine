@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Sidebar.css";
-import Logo from "../../assets/logo.svg";
+import Logo from "../../assets/logo.png";
 import LightLogo from "../../assets/light-logo.svg";
 
 import {
@@ -15,6 +15,7 @@ import {
     RiSunLine,
     RiMenu2Line,
 } from "react-icons/ri";
+import { BiLogOut } from "react-icons/bi";
 
 
 const Sidebar = (props) => {
@@ -23,9 +24,11 @@ const Sidebar = (props) => {
     return (
         <>
             <aside className={toggle ? 'aside show-menu' : 'aside'}>
-                <a href="#home" className="nav__logo">
-                    <img src={props.theme === 'light' ? LightLogo : Logo} alt="logo" />
-                </a>
+               <div className="logo">
+                <a href="#home" className="nav__logo"> 
+                        <span className="logo-text">R</span> 
+                    </a>
+               </div>
 
                 <nav className="nav">
                     <div className="nav__menu">
@@ -63,11 +66,11 @@ const Sidebar = (props) => {
                     </div>
                 </nav>
 
-                <div className="nav__footer">
+                {/* <div className="nav__footer">
                     <button onClick={() => { props.switchTheme(); showMenu(!toggle) }} className="nav__link footer__button">
                         {props.theme === 'light' ? <RiMoonLine /> : <RiSunLine />}
                     </button>
-                </div>
+                </div> */}
             </aside>
 
             <div className={toggle ? 'nav__toggle nav__toggle-open' : 'nav__toggle'} onClick={() => showMenu(!toggle)}>
