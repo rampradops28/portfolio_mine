@@ -28,11 +28,11 @@ const messages = {
   };
 
 function App() {
-    const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'dark' : 'light');
+    const defaultDark = window.matchMedia('(prefers-color-scheme: light)').matches;
+    const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'light' : 'light');
 
     // const switchTheme = () => {
-    //     const newTheme = theme === 'light' ? 'dark' : 'light';
+    //     const newTheme = theme === 'light' ? 'dark' : 'light';  
     //     setTheme(newTheme);
     // } 
     //theme={theme} switchTheme={switchTheme}
