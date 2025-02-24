@@ -28,8 +28,8 @@ const messages = {
   };
 
 function App() {
-    const defaultDark = window.matchMedia('(prefers-color-scheme: light)').matches;
-    const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'light' : 'light');
+    // const defaultDark = window.matchMedia('(prefers-color-scheme: light)').matches;
+    // const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'light' : 'light');
 
     // const switchTheme = () => {
     //     const newTheme = theme === 'light' ? 'dark' : 'light';  
@@ -38,7 +38,7 @@ function App() {
     //theme={theme} switchTheme={switchTheme}
 
     return (
-        <div className="app" data-theme={theme}>
+        <div className="app" >
             <Sidebar  />
             <main className='main'>
                 <Home />

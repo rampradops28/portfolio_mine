@@ -30,6 +30,10 @@
   gap: 1.875rem;
 }
 
+.portfolio__thumbnail{
+    
+}
+
 .portfolio__card {
   position: relative;
   overflow: hidden;
