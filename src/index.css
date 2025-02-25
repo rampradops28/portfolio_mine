@@ -31,7 +31,7 @@
   --border-radius: 20px;
 }
 
-[data-theme="light"] {
+[data-theme="light"] { 
   --first-color: hsl(353, 100%, 65%);
   --title-color: hsl(218, 11%, 69%);
   --text-color: hsl(0, 0%, 100%);
