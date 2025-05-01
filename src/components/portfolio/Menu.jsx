@@ -23,14 +23,14 @@ const Menu = [
 		url: "https://github.com/rampradops28/react-projects",
 		repositoryUrl: "https://github.com/rampradops28/react-projects"
 	},
-	{
-		id: 3,
-		image: Work3,
-		title: "Travel Advisor",
-		category: ["Frontend"],
-		url: "https://travel.gregsithole.com",
-		repositoryUrl: "https://github.com/GregSithole/travel-advisor"
-	},
+	// {
+	// 	id: 3,
+	// 	image: Work3,
+	// 	title: "Travel Advisor",
+	// 	category: ["Frontend"],
+	// 	url: "https://travel.gregsithole.com",
+	// 	repositoryUrl: "https://github.com/GregSithole/travel-advisor"
+	// },
 	{
 		id: 4,
 		image: backend1,

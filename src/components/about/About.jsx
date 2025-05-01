@@ -20,10 +20,10 @@ const About = () => {
                 <div className="about__data grid">
                     <div className="about__info">
                         <p className="about__description">
-                            Hello! I'm Greg, and I'm based in Johannesburg, South Africa. I studied at Varisty College Sandton, where I completed my diploma in Software Development.<br /><br />
-                            I’m passionate about web development and UI/UX design, bringing ideas to life through intuitive and visually appealing websites. My focus is on creating smooth user 
-                            experiences and clean, effective designs. I love experimenting with new technologies and design trends to build solutions that are both functional and user-friendly. 
-                            With each project, I aim to make an impact by delivering websites that not only look great but also work seamlessly.<br /><br />   
+                        Hello! I'm Rampradop, a Computer Science and Design student based in Tamil Nadu, India. <br /><br /> 
+                        I'm passionate about full-stack web development and enjoy transforming ideas into responsive and user-friendly web applications. 
+                        With experience in the MERN stack and a strong focus on clean UI/UX, I aim to build secure, real-time solutions that make a difference. 
+                        I constantly explore new technologies and sharpen my skills through hands-on projects, internships, and hackathons.<br /><br />   
                         </p>
                         <button className="btn" onClick={downloadResume}>Donwload CV</button>
                     </div>
