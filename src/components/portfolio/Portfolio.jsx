@@ -1,76 +1,188 @@
-import React, { useState } from "react";
-import "./Portfolio.css";
-
-import Menu from "./Menu";
-import { RiGithubLine, RiLink } from "react-icons/ri";
-
-import { motion } from "framer-motion";
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ExternalLink, Github, Code, Database, Globe, Layers, Sparkles, Zap } from 'lucide-react';
+import { portfolioData } from './Menu.jsx';
+import './Portfolio.css';
 
 const Portfolio = () => {
-	const [items, setItems] = useState(Menu);
-	const [activeFilter, setActiveFilter] = useState(0);
-	const filterItems = (categoryItem) => {
-		const updatedItems = Menu.filter((curElem) => {
-			return curElem.category.includes(categoryItem);
-		});
+  const [items, setItems] = useState(portfolioData);
+  const [activeFilter, setActiveFilter] = useState('All');
 
-		setItems(updatedItems);
-	};
+  const categories = [
+    { name: 'All', icon: Sparkles },
+    { name: 'Frontend', icon: Globe },
+    { name: 'Backend', icon: Database },
+    { name: 'Full Stack', icon: Layers },
+    { name: 'Python', icon: Code },
+    { name: 'React', icon: Zap }
+  ];
 
-	return (
-		<section className="portfolio container section" id="portfolio">
-			<h2 className="section__title">Recent Projects</h2>
+  const filterItems = (category) => {
+    setActiveFilter(category);
+    if (category === 'All') {
+      setItems(portfolioData);
+    } else {
+      const filteredItems = portfolioData.filter(item => 
+        item.category.includes(category)
+      );
+      setItems(filteredItems);
+    }
+  };
 
-			<div className="portfolio__filters">
-				<span className={activeFilter === 0 ? 'portfolio__item portfolio__item-active' : 'portfolio__item'} onClick={() => { setItems(Menu); setActiveFilter(0) }}>
-					All
-				</span>
-				<span className={activeFilter === 1 ? 'portfolio__item portfolio__item-active' : 'portfolio__item'} onClick={() => { filterItems("Frontend"); setActiveFilter(1) }}>
-					Frontend
-				</span>
-				<span className={activeFilter === 2 ? 'portfolio__item portfolio__item-active' : 'portfolio__item'} onClick={() => { filterItems("Backend"); setActiveFilter(2) }}>
-					Backend
-				</span>
-				<span className={activeFilter === 3 ? 'portfolio__item portfolio__item-active' : 'portfolio__item'} onClick={() => { filterItems("Python"); setActiveFilter(3) }}>
-					Python
-				</span>
-				<span className={activeFilter === 4 ? 'portfolio__item portfolio__item-active' : 'portfolio__item'} onClick={() => { filterItems("React"); setActiveFilter(4) }}>
-					React
-				</span>
-			</div>
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
 
-			<div className="portfolio__container grid">
-				{items.map((elem) => {
-					const { id, image, title, category, url, repositoryUrl } = elem;
+  const itemVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 30
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
+  };
 
-					return (
-						<motion.div
-							layout
-							animate={{ opacity: 1 }}
-							initial={{ opacity: 0 }}
-							exit={{ opacity: 0 }}
-							transition={{ duration: 0.3 }}
-							className="portfolio__card"
-							key={id}>
-							<div className="portfolio__thumbnail">
-								<img src={image} alt="" className="portfolio__img" height="267" />
-								<div className="portfolio__mask"></div>
-							</div>
+  return (
+    <div className="portfolio-wrapper">
+      {/* Header Section */}
+      <motion.div 
+        className="portfolio-header"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <h1 className="portfolio-title">My Portfolio</h1>
+        <p className="portfolio-subtitle">
+          Explore my latest projects and work
+        </p>
+      </motion.div>
 
-							<span className="portfolio__category">{category.join(', ')}</span>
-							<h3 className="portfolio__title">{title}</h3>
-							<a href={url} target="_blank" rel="noreferrer" className="portfolio__button">
-								<RiLink className="portfolio__button-icon" />
-							</a>
-							<a href={repositoryUrl} target="_blank" rel="noreferrer" className="portfolio__github-button">
-								<RiGithubLine className="portfolio__button-icon" />
-							</a>
-						</motion.div>
-					);
-				})}
-			</div>
-		</section>
-	);
+      {/* Tab Navigation */}
+      <motion.div 
+        className="tab-navigation"
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.3, duration: 0.6 }}
+      >
+        <div className="tab-container">
+          {categories.map((category, index) => {
+            const IconComponent = category.icon;
+            return (
+              <motion.button
+                key={category.name}
+                className={`tab-item ${activeFilter === category.name ? 'tab-active' : ''}`}
+                onClick={() => filterItems(category.name)}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.5 + index * 0.1 }}
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <IconComponent className="tab-icon" />
+                <span className="tab-text">{category.name}</span>
+              </motion.button>
+            );
+          })}
+        </div>
+      </motion.div>
+
+      {/* Projects Grid */}
+      <motion.div
+        className="projects-container"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <AnimatePresence mode="wait">
+          <motion.div 
+            key={activeFilter}
+            className="projects-grid"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            {items.map((project) => (
+              <motion.div
+                key={project.id}
+                className="project-card"
+                variants={itemVariants}
+                layout
+                whileHover={{ 
+                  scale: 1.05,
+                  transition: { duration: 0.3 }
+                }}
+              >
+                <div className="project-image-wrapper">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="project-image"
+                  />
+                  <div className="image-overlay">
+                    <div className="overlay-content">
+                      <motion.a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="action-button live-button"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                      >
+                        <ExternalLink className="button-icon" />
+                      </motion.a>
+                      <motion.a
+                        href={project.repositoryUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="action-button github-button"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                      >
+                        <Github className="button-icon" />
+                      </motion.a>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="project-info">
+                  <div className="category-tags">
+                    {project.category.map((cat, i) => (
+                      <span key={i} className="category-tag">
+                        {cat}
+                      </span>
+                    ))}
+                  </div>
+                  <h3 className="project-title">{project.title}</h3>
+                  <p className="project-description">{project.description}</p>
+                  <div className="tech-stack">
+                    {project.technologies?.map((tech, i) => (
+                      <span key={i} className="tech-tag">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
+      </motion.div>
+    </div>
+  );
 };
 
 export default Portfolio;

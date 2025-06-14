@@ -11,6 +11,7 @@
   max-width: 540px;
   text-align: center;
   z-index: 10;
+  padding: 0 15px;
 }
 
 .home__img {
@@ -25,6 +26,31 @@
   font-size: var(--h1-font-size);
   font-weight: var(--font-bold);
   margin-bottom: 0.5rem;
+}
+
+.home__education {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  display: block;
+  line-height: 1.5;
+}
+
+.typed-text {
+  color: hsl(43, 100%, 68%);
+  font-weight: var(--font-bold);
+}
+
+.cursor {
+  display: inline-block;
+  width: 3px;
+  margin-left: 3px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 .home__socials {
@@ -168,6 +194,57 @@
   right: 2%;
 }
 
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .home {
+    width: 100vw;
+    padding: 0 15px;
+  }
+
+  .home__name {
+    font-size: calc(var(--h1-font-size) * 0.9);
+  }
+
+  .home__education {
+    font-size: 1.1rem;
+  }
+
+  .home__img {
+    height: 160px;
+    width: 160px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .home__name {
+    font-size: calc(var(--h1-font-size) * 0.8);
+  }
+
+  .home__education {
+    font-size: 1rem;
+  }
+
+  .home__img {
+    height: 140px;
+    width: 140px;
+  }
+
+  .typed-text, .cursor {
+    display: inline-block;
+    word-break: break-word;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .home__img {
+    height: 120px;
+    width: 120px;
+  }
+
+  .home__education {
+    font-size: 0.95rem;
+  }
+}
 
 @media (max-width: 450px) {
   .scroll__down{
