@@ -1,10 +1,10 @@
 import React from 'react';
-import './Skills.css';
+import './skills.css';
 
 // Map readable skill names to proper icon slugs (SimpleIcons or fallbacks)
 const skillIcons = {
   C: 'c',
-  Java: 'java',
+  Java: 'openjdk',
   JavaScript: 'javascript',
   Python: 'python',
   TypeScript: 'typescript',

@@ -238,8 +238,8 @@
     padding: 1rem;
   }
   
-  .portfolio-title {
-    font-size: 2rem;
+  .portfolio__title {
+    font-size: var(--h2-font-size);
   }
   
   .tab-container {
