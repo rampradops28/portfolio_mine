@@ -14,7 +14,7 @@
 }
 
 .section__title {
-  font-size: clamp(2rem, 5vw, var(--h1-font-size));
+  font-size: clamp(1.3rem, 3vw, 2.2rem); /* decreased */
   font-weight: var(--font-bold);
   color: var(--title-color);
   margin-bottom: 0.5rem;
@@ -60,7 +60,7 @@
 }
 
 .category-heading {
-  font-size: var(--h3-font-size);
+  font-size: 1.1rem; /* decreased */
   font-weight: var(--font-semi-bold);
   color: var(--title-color);
   margin-bottom: 1.5rem;
@@ -134,7 +134,7 @@
 }
 
 .skill-name {
-  font-size: var(--normal-font-size);
+  font-size: 0.95rem; /* decreased */
   font-weight: var(--font-medium);
   color: var(--title-color);
   position: relative;
@@ -154,7 +154,11 @@
   }
 
   .section__title {
-    font-size: var(--h2-font-size);
+    font-size: 1.1rem; /* decreased */
+  }
+
+  .category-heading {
+    font-size: 0.98rem; /* decreased */
   }
 
   .skill-container {
@@ -166,6 +170,10 @@
     width: 2.4rem;
     height: 2.4rem;
   }
+
+  .skill-name {
+    font-size: 0.85rem; /* decreased */
+  }
 }
 
 @media screen and (max-width: 450px) {
@@ -174,7 +182,7 @@
   }
 
   .category-heading {
-    font-size: var(--normal-font-size);
+    font-size: 0.85rem; /* decreased */
     padding-left: 0.75rem;
   }
 
@@ -189,6 +197,6 @@
   }
 
   .skill-name {
-    font-size: var(--smaller-font-size);
+    font-size: 0.75rem; 
   }
 }

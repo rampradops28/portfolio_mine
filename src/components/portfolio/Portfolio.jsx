@@ -39,7 +39,7 @@ const Portfolio = () => {
   };
 
   return (
-    <div className="portfolio-wrapper">
+    <div className="portfolio-wrapper" id="portfolio">
       {/* Header Section */}
       <motion.div > 
        <div className="portfolio__title-wrapper">

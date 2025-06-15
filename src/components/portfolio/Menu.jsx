@@ -27,7 +27,7 @@ export const portfolioData = [
   {
     id: 3,
     title: "VibeX",
-    description: "Music web app interface inspired by Spotify using React.",
+    description: "Vibex is a modern, full-stack social media platform inspired by Twitter.",
     image: xclone,
     category: ["Full Stack",,"MERN"],
     url: "https://github.com/rampradops28/react-projects",
