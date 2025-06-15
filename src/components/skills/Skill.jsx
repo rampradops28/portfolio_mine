@@ -1,141 +1,120 @@
 import React from 'react';
-import './skills.css';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import './Skills.css';
 
-// Initialize AOS with earlier trigger point
-AOS.init({
-  duration: 1000,
-  once: true,
-  offset: 100
-});
+// Map readable skill names to proper icon slugs (SimpleIcons or fallbacks)
+const skillIcons = {
+  C: 'c',
+  Java: 'java',
+  JavaScript: 'javascript',
+  Python: 'python',
+  TypeScript: 'typescript',
+  HTML5: 'html5',
+  CSS3: 'css3',
+  Markdown: 'markdown',
+  React: 'react',
+  SolidJS: 'solid',
+  TailwindCSS: 'tailwindcss',
+  Bootstrap: 'bootstrap',
+  DaisyUI: 'daisyui',
+  'Context-API': 'react',
+  Redux: 'redux',
+  NodeJS: 'nodedotjs',
+  'Express.js': 'express',
+  'Socket.io': 'socketdotio',
+  MongoDB: 'mongodb',
+  MySQL: 'mysql',
+  Netlify: 'netlify',
+  Vercel: 'vercel',
+  Render: 'render',
+  Git: 'git',
+  GitHub: 'github',
+  Vite: 'vite',
+  NPM: 'npm',
+  Nodemon: 'nodemon',
+  ESLint: 'eslint',
+  Insomnia: 'insomnia',
+};
 
-const Skill = () => {
-  const skillsData = {
-    frontend: [
-      {
-        name: "HTML",
-        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg",
-      },
-      {
-        name: "CSS",
-        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg",
-      }, 
-      {
-        name: "Bootstrap",
-        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain.svg",
-      },
-      {
-        name: "JavaScript",
-        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg",
-      },
-      {
-        name: "React",
-        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg",
-      }
+const skillData = [
+  {
+    title: '🧠 Programming Languages',
+    skills: [
+      'C', 'Java', 'JavaScript', 'Python', 'HTML5', 'CSS3' ,
     ],
-    backend: [ 
-      {
-        name: "SQL",
-        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg",
-      },
-      {
-        name: "Node.js",
-        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg",
-      },
-      {
-        name: "Express",
-        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg",
-      },
-      {
-        name: "MongoDB",
-        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg",
-      }
+  },
+  {
+    title: '🎨 Frontend Development',
+    skills: [
+      'React', 'TailwindCSS', 'Bootstrap', 'DaisyUI',
+      'Context-API', 'Redux',
     ],
-    programming: [
-      {
-        name: "C",
-        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg",
-      },
-      {
-        name: "Java",
-        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg",
-      },
-      {
-        name: "Python",
-        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg",
-      }  
+  },
+  {
+    title: '⚙️ Backend Development',
+    skills: [
+      'NodeJS', 'Express.js', 'Socket.io',
     ],
-    tools: [
-      {
-        name: "Git",
-        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg",
-      },
-      {
-        name: "Figma",
-        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/figma/figma-original.svg",
-      }
-    ]
-  };
+  },
+  {
+    title: '🗄️ Databases',
+    skills: ['MongoDB', 'MySQL'],
+  },
+  {
+    title: '☁️ Hosting/Deployment',
+    skills: ['Netlify', 'Vercel', 'Render'],
+  },
+  {
+    title: '🛠️ Tools & DevOps',
+    skills: [
+      'Git', 'GitHub', 'Insomnia',
+    ],
+  },
+];
 
-  const renderSkillCards = (skills, delay = 0) => {
-    return skills.map((skill, index) => (
-      <div 
-        className="skill-card" 
-        data-aos="fade-up"
-        data-aos-delay={50 + (index * 30)}
-        key={skill.name}
-      >
-        <div className="skill-icon-wrapper">
-          <img 
-            alt={skill.name} 
-            className="skills-img" 
-            src={skill.icon} 
-            title={skill.name} 
-          />
-        </div>
-        <h2 className="skill-name">{skill.name}</h2>
-      </div>
-    ));
-  };
-
+const Skills = () => {
   return (
-    <section className="skills container section" id="skills">
-      <h2 className="section__title">My Skills</h2>
-      
+    <section className="skills section" id="skills">
+      <div className="section__title-wrapper">
+        <h2 className="section__title">
+          <span className="different-color">My</span> Skills
+        </h2>
+         
+      </div>
+
       <div className="skills__container">
         <div className="skills__grid">
-          <div className="skills-category" data-aos="fade-right" data-aos-duration="400">
-            <h3 className="category-heading">Frontend</h3>
-            <div className="skill-container">
-              {renderSkillCards(skillsData.frontend)}
+          {skillData.map((category, index) => (
+            <div className="skills-category" key={index}>
+              <h3 className="category-heading">{category.title}</h3>
+              <div className="skill-container">
+                {category.skills.map((skill, idx) => {
+                  const iconSlug = skillIcons[skill] || 'wrench';
+                  return (
+                    <div className="skill-card" key={idx}>
+                      <span className="shine" />
+                      <div className="skill-icon-wrapper">
+                        <img
+                          src={`https://cdn.simpleicons.org/${iconSlug}`}
+                          alt={skill}
+                          className="skills-img"
+                          onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src =
+                              'https://cdn-icons-png.flaticon.com/512/4712/4712109.png';
+                          }}
+                        />
+                      </div>
+                      <span className="skill-name">{skill}</span>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-          </div>
-
-          <div className="skills-category" data-aos="fade-left" data-aos-duration="400">
-            <h3 className="category-heading">Backend</h3>
-            <div className="skill-container">
-              {renderSkillCards(skillsData.backend)}
-            </div>
-          </div>
-
-          <div className="skills-category" data-aos="fade-right" data-aos-duration="400">
-            <h3 className="category-heading">Languages</h3>
-            <div className="skill-container">
-              {renderSkillCards(skillsData.programming)}
-            </div>
-          </div>
-
-          <div className="skills-category" data-aos="fade-left" data-aos-duration="400">
-            <h3 className="category-heading">Tools</h3>
-            <div className="skill-container">
-              {renderSkillCards(skillsData.tools)}
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
   );
 };
 
-export default Skill;
+export default Skills;

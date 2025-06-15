@@ -5,24 +5,33 @@
   background: #f8fafc;
 }
 
-/* Header Section */
-.portfolio-header {
-  text-align: center;
+.portfolio__title-wrapper { 
   margin-bottom: 3rem;
+  margin-left: 6rem;
 }
 
-.portfolio-title {
-  font-size: 3rem;
-  font-weight: 800;
-  color: #1e293b;
-  margin-bottom: 1rem;
+.portfolio__title {
+  font-size: clamp(2rem, 5vw, var(--h1-font-size));
+  font-weight: var(--font-bold);
+  color: var(--title-color);
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.different-color {
+  color: var(--first-color);
+}
+
+.portfolio-title { 
+  margin-bottom: 2.5rem;
 }
 
 .portfolio-subtitle {
-  font-size: 1.125rem;
-  color: #64748b;
-  max-width: 600px;
-  margin: 0 auto;
+  font-size: var(--h1-font-size);
+  font-weight: var(--font-bold);
+  position: relative;
+  margin-bottom: 1rem;
+  color: var(--title-color);
 }
 
 /* Tab Navigation */

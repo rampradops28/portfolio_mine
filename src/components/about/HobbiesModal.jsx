@@ -16,8 +16,12 @@ const HobbiesModal = ({ isOpen, onClose }) => {
             points: ["Pixel-perfect designs", "Creative coding", "Daily challenges"]
         },
         {
+            title: "Play with chatgpt",
+            points: ["learn english", "exposing my ideas","ask funny questions"]
+        },
+        {
             title: "Coding",
-            points: ["Side projects", "Open source", "Tech blogs"]
+            points: ["Vibe Coding", "Open source"]
         },
         {
             title: "Gaming",
@@ -25,11 +29,7 @@ const HobbiesModal = ({ isOpen, onClose }) => {
         },
         {
             title: "Music",
-            points: ["Guitar", "Coding playlists", "Different genres"]
-        },
-        {
-            title: "Reading",
-            points: ["Tech books", "Sci-fi novels", "Dev articles"]
+            points: [ "english songs", "Different genres"]
         }
     ];
 
