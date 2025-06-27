@@ -4,6 +4,8 @@ import xclone from "../../assets/x_clone_img.png"
 import ml from "../../assets/ml_project_img.png"
 import python from '../../assets/python1.png';
 import react from '../../assets/react.png';
+import calendar from '../../assets/calendar.png';
+import rock from '../../assets/rock_game.png';
 
 export const portfolioData = [
   {
@@ -29,12 +31,30 @@ export const portfolioData = [
     title: "VibeX",
     description: "Vibex is a modern, full-stack social media platform inspired by Twitter.",
     image: xclone,
-    category: ["Full Stack",,"MERN"],
+    category: ["Full Stack","MERN"],
     url: "https://github.com/rampradops28/react-projects",
     repositoryUrl: "https://github.com/rampradops28/VibeX"
   },
   {
     id: 4,
+    title: "Rock_Paper_Scissors Game",
+    description: "A simple and interactive Rock, Paper, Scissors game",
+    image: rock,
+    category: ["Frontend","JavaScript"],
+    url: "https://kec-rock-paper-scissor.netlify.app/",
+    repositoryUrl: "https://github.com/rampradops28/Rock_Paper_Scissors"
+  },
+   {
+    id: 5,
+    title: "Calendar App",
+    description: "A modern, responsive calendar app for daily planning and scheduling.",
+    image: calendar,
+    category: ["Frontend", "React"],
+    url: "https://calender081.vercel.app/",
+    repositoryUrl: "https://github.com/rampradops28/Calender_app"
+  },
+  {
+    id: 6,
     title: "Plagiarism Detection",
     description: "Machine learning-based plagiarism detection tool using Python and NLP.",
     image: ml,
@@ -43,7 +63,7 @@ export const portfolioData = [
     repositoryUrl: "https://github.com/rampradops28/plagarism_detection_ml"
   },
   {
-    id: 5,
+    id: 7,
     title: "Web Scraping Data",
     description: "Python project to scrape and extract data from various websites.",
     image: python,
@@ -52,7 +72,7 @@ export const portfolioData = [
     repositoryUrl: "https://github.com/rampradops28/web_scrab/tree/main"
   },
   {
-    id: 6,
+    id: 8,
     title: "Mini Projects",
     description: "A collection of multiple React mini-projects for learning and demonstration.",
     image: react,
